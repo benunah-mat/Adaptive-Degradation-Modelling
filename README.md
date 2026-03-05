@@ -1,4 +1,4 @@
-# Bearing Degradation and Failure Prediction Model
+# Adaptive Bearing Degradation and Failure Prediction Framework
 
 ## Overview
 
