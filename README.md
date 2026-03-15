@@ -94,7 +94,7 @@ monitoring_engine/
     rul_prediction.m
 
 digital_twin/
-    digital_twin_simulator.m
+    digital_twin_simulatorx.m
     multi_asset_simulation.m
 
 analytics/
