@@ -1,193 +1,126 @@
-# Bearing Degradation and Failure Prediction Model
+# Failure Simulation Framework for Predictive Digital Twins
 
 ## Overview
 
-This project develops a vibration-based prognostics framework for detecting degradation and predicting failure in rolling element bearings using the NASA IMS bearing dataset.
+The **Failure Simulation Framework for Predictive Digital Twins** is a physics-based predictive maintenance platform designed to simulate equipment degradation, monitor asset health, detect faults, and predict machine failures.
 
-The goal is to transform raw vibration measurements into actionable reliability insights by identifying degradation regimes and estimating the Remaining Useful Life (RUL) of the system.
+This framework integrates digital twin simulation with predictive maintenance analytics to support industrial asset reliability and maintenance decision-making.
 
-The model combines signal processing, degradation modelling, and statistical change detection to build a complete predictive maintenance pipeline.
-
----
-
-# Project Objectives
-
-* Extract a meaningful health indicator from raw vibration signals.
-* Model degradation dynamics in rotating machinery.
-* Detect statistical instability in degradation behaviour.
-* Identify degradation regimes automatically.
-* Predict failure time and estimate Remaining Useful Life (RUL).
+The system models machine degradation, generates synthetic vibration signals, detects anomalies, and estimates remaining useful life (RUL).
 
 ---
 
-# Dataset
+## Key Features
 
-This project uses the **NASA IMS Bearing Dataset**, which contains vibration measurements collected from a bearing test rig until failure.
-
-The dataset includes thousands of vibration signals recorded over time, allowing analysis of degradation behaviour leading up to bearing failure.
-
-Each vibration file represents accelerometer data collected from the test rig at a specific time interval.
+• Physics-based degradation modelling
+• Digital twin simulation of machine behavior
+• Synthetic vibration signal generation
+• Health monitoring using RMS indicators
+• Fault detection using CUSUM algorithms
+• Remaining Useful Life (RUL) prediction
+• Multi-asset digital twin simulation
+• Fleet-level failure risk ranking
 
 ---
 
-# Methodology
-
-The model follows a multi-stage predictive maintenance pipeline:
+## System Architecture
 
 ```
-Raw vibration signals
-↓
-Health indicator extraction (RMS)
-↓
-Log degradation modelling
-↓
-Degradation velocity estimation
-↓
-Residual dynamics analysis
-↓
-Sequential change detection (CUSUM)
-↓
-Regime identification
-↓
-Accelerated degradation modelling
-↓
-Failure prediction
-↓
-Remaining Useful Life estimation
+Operating Conditions
+        ↓
+Damage Evolution Model
+        ↓
+Sensor Simulation (Vibration)
+        ↓
+Health Monitoring (RMS)
+        ↓
+Fault Detection (CUSUM)
+        ↓
+Remaining Useful Life Prediction
+        ↓
+Fleet Failure Risk Ranking
 ```
 
 ---
 
-# Phase 1: Deterministic Degradation Modelling
+## Applications
 
-The vibration signals are transformed into a degradation indicator using Root Mean Square (RMS) vibration energy.
+The framework is designed for predictive maintenance and reliability analysis in industries operating mechanical systems such as:
 
-The RMS signal captures the increasing vibration energy associated with bearing damage.
-
-Key concept:
-
-RMS measures vibration energy and acts as a proxy for damage accumulation in rotating machinery.
-
----
-
-# Phase 2: Adaptive Exponential Degradation Modelling
-
-Bearing degradation often follows exponential growth behaviour.
-To linearise this behaviour, the degradation signal is transformed using a logarithmic model:
-
-g(t) = log(D(t))
-
-This allows the degradation dynamics to be analysed using velocity-based modelling.
-
-The degradation velocity is estimated as the difference between successive log degradation states.
+• Oil & Gas
+• Energy and Power Generation
+• Manufacturing
+• Mining
+• Aerospace
+• Industrial rotating machinery
 
 ---
 
-# Phase 3: Statistical Instability Detection (CUSUM)
+## Example Use Case
 
-Sequential hypothesis testing is used to detect changes in degradation behaviour.
+Industrial operators can use the framework to simulate machine degradation and predict failure under different operating conditions.
 
-The Cumulative Sum (CUSUM) algorithm monitors residual dynamics to detect deviations from expected degradation behaviour.
+Example output:
 
-CUSUM statistic:
+Machine 3 → Failure predicted in 4200 hours
+Machine 1 → Failure predicted in 6100 hours
+Machine 4 → Failure predicted in 7800 hours
 
-S_t = max(0, S_(t-1) + ε_t − k)
-
-When the statistic exceeds a threshold, a degradation regime transition is detected.
-
-This allows the model to identify when the system transitions from healthy behaviour to degradation.
+This enables maintenance teams to prioritize asset servicing before failure occurs.
 
 ---
 
-# Phase 4: Regime-Aware Failure Prediction
+## Technologies
 
-Once the accelerated degradation regime is identified, a quadratic degradation model is fitted to the late-stage degradation region.
-
-The model predicts the failure time by solving:
-
-g(t) = a + bt + ct²
-
-The predicted failure time is used to estimate Remaining Useful Life:
-
-RUL = predicted failure time − current time
+MATLAB
+Digital Twin Simulation
+Predictive Maintenance Algorithms
+Reliability Engineering Models
 
 ---
 
-# Results
+## Project Structure
 
-Using the NASA IMS bearing dataset:
+```
+Failure-Simulation-Framework-for-Predictive-Digital-Twins
 
-* Early degradation detection occurred at sample ~156
-* True failure occurred at sample 2156
-* Predicted failure occurred at sample ~2245
-* Prediction error ≈ 89 samples (~4%)
+core_models/
+damage_evolution_model.m
+vibration_sensor_model.m
 
-This demonstrates that the model can detect degradation early and predict failure with reasonable accuracy.
+monitoring_engine/
+rms_health_indicator.m
+cusum_fault_detection.m
+rul_prediction.m
 
----
+digital_twin/
+digital_twin_simulator.m
+multi_asset_simulation.m
 
-# Key Concepts Used
+analytics/
+fleet_failure_ranking.m
 
-This project integrates principles from several fields:
+dashboards/
+digital_twin_dashboard.m
 
-**Vibration Mechanics**
-
-* Bearing fault dynamics
-* Impact-induced vibration energy
-
-**Signal Processing**
-
-* RMS energy extraction
-* Log transformation
-
-**Reliability Engineering**
-
-* Degradation modelling
-* Remaining Useful Life prediction
-
-**Statistical Process Monitoring**
-
-* Sequential hypothesis testing
-* CUSUM change detection
+main/
+run_digital_twin_framework.m
+```
 
 ---
 
-# Tools and Technologies
+## Future Work
 
-* MATLAB
-* Signal Processing
-* Time Series Analysis
-* Statistical Change Detection
-* Degradation Modelling
-
----
-
-# Applications
-
-This framework is relevant to predictive maintenance in industries such as:
-
-* Oil and Gas
-* Aerospace
-* Manufacturing
-* Energy and Power Systems
-* Wind Turbines
-
-Predictive maintenance systems built on similar principles are used to monitor rotating machinery and prevent unexpected equipment failures.
+• Integration with real industrial sensor data
+• Cloud-based digital twin platform
+• Plant-level digital twin simulation
+• Parameter sensitivity analysis
+• Machine learning assisted predictions
 
 ---
 
-# Future Improvements
-
-Potential extensions of this work include:
-
-* Testing across multiple bearings in the dataset
-* Uncertainty-aware RUL prediction
-* Monte Carlo degradation modelling
-* Multi-sensor fusion
-* Real-time online prediction
-
----
-
-# Author
+## Author
 Benjamin Unah
 
+
+Research interests include reliability engineering, digital twins, predictive maintenance, and industrial system safety.
