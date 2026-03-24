@@ -93,6 +93,13 @@ Machine 3 → Failure predicted in 4200 hours
 Machine 1 → Failure predicted in 6100 hours
 Machine 4 → Failure predicted in 7800 hours
 
+Example probabilistic output from the framework:
+
+Mean Failure Time: 1985
+Standard Deviation: 5.53
+95% Confidence Interval: [1974, 1996]
+Probability of failure before mean: 0.54
+
 Maintenance teams can prioritize servicing before failure occurs.
 
 ```
