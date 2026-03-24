@@ -23,7 +23,7 @@ fprintf('\nSimulation Complete.\n')
 % PROBABILISTIC RUL ANALYSIS
 % ============================================================
 
-machine = machines(1);   % choose machine
+machine = machines(1);
 
 num_sim = 100;
 
@@ -35,20 +35,47 @@ d = 1.3;
 
 failure_times = monte_carlo_rul(machine,t,dt,k,a,b,c,d,num_sim);
 
-%% Histogram
+%% Compute statistics FIRST
+
+mean_tf = mean(failure_times);
+std_tf = std(failure_times);
+
+fprintf("Mean Failure Time: %.2f\n",mean_tf);
+fprintf("Std Dev: %.2f\n",std_tf);
+
+%% Confidence Interval
+
+lower_95 = mean_tf - 2*std_tf;
+upper_95 = mean_tf + 2*std_tf;
+
+
+%% Plot histogram WITH lines
 
 figure
 histogram(failure_times,20)
 xlabel('Failure Time')
 ylabel('Frequency')
-title('Failure Time Distribution')
+title('Failure Time Distribution with Confidence Interval')
 grid on
+hold on
+
+xline(mean_tf,'r','LineWidth',2,'Label','Mean')
+xline(lower_95,'g--','LineWidth',2,'Label','Lower 95%')
+xline(upper_95,'g--','LineWidth',2,'Label','Upper 95%')
 
 %% Statistics
 
 mean_tf = mean(failure_times);
 std_tf = std(failure_times);
 
+%% ============================================================
+% CONFIDENCE INTERVAL
+% ============================================================
+
+lower_95 = mean_tf - 2*std_tf;
+upper_95 = mean_tf + 2*std_tf;
+
+fprintf("95%% Confidence Interval: [%.2f, %.2f]\n", lower_95, upper_95);
 fprintf("Mean Failure Time: %.2f\n",mean_tf);
 fprintf("Std Dev: %.2f\n",std_tf);
 
