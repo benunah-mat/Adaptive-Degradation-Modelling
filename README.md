@@ -26,7 +26,7 @@ This framework demonstrates that:
 - Maintenance decisions should be based on **acceptable risk levels**  
 - Uncertainty must be explicitly modeled in degradation processes
 
-This moves beyond traditional predictive maintenance by treating the system as a **dynamic digital twin**, rather than a static prediction model.
+
 ---
 
 ## Key Features
