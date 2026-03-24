@@ -4,22 +4,46 @@
 
 The **Failure Simulation Framework for Predictive Digital Twins** is a physics-based predictive maintenance platform designed to simulate equipment degradation, monitor asset health, detect faults, and predict machine failures.
 
+Unlike traditional deterministic models, this framework incorporates **stochastic degradation and Monte Carlo simulation** to generate **failure time distributions**, enabling **probabilistic decision-making** for industrial asset reliability.
+
 The framework integrates **digital twin simulation** with **predictive maintenance analytics** to support industrial asset reliability and maintenance decision-making.
+ 
+By integrating these layers, the system functions as a **digital representation of physical assets**, enabling:
 
-The system models machine degradation, generates synthetic vibration signals, detects anomalies, and estimates remaining useful life (RUL).
+- Real-time degradation tracking  
+- Failure probability estimation  
+- Confidence-aware Remaining Useful Life (RUL) prediction  
+- Risk-based maintenance decision-making
 
+---
+
+## Engineering Insight
+
+Traditional maintenance strategies rely on fixed schedules or single failure predictions.
+
+This framework demonstrates that:
+
+- Failure prediction should be **probabilistic**, not deterministic  
+- Maintenance decisions should be based on **acceptable risk levels**  
+- Uncertainty must be explicitly modeled in degradation processes
+
+This moves beyond traditional predictive maintenance by treating the system as a **dynamic digital twin**, rather than a static prediction model.
 ---
 
 ## Key Features
 
-* Physics-based degradation modelling
-* Digital twin simulation of machine behavior
-* Synthetic vibration signal generation
-* Health monitoring using RMS indicators
-* Fault detection using CUSUM algorithms
-* Remaining Useful Life (RUL) prediction
-* Multi-asset digital twin simulation
-* Fleet-level failure risk ranking
+* Physics-based degradation modelling  
+* Stochastic damage evolution (uncertainty-aware)  
+* Digital twin simulation of machine behavior  
+* Synthetic vibration signal generation  
+* Health monitoring using RMS indicators  
+* Fault detection using CUSUM algorithms  
+* Deterministic and probabilistic RUL prediction  
+* Monte Carlo-based failure simulation  
+* Failure probability analysis (CDF)  
+* Confidence interval estimation  
+* Multi-asset digital twin simulation  
+* Fleet-level failure risk ranking  
 
 ---
 
@@ -37,6 +61,10 @@ Health Monitoring (RMS)
 Fault Detection (CUSUM)
         ↓
 Remaining Useful Life Prediction
+        ↓
+Monte Carlo Distribution
+        ↓
+Confidence Intervals
         ↓
 Fleet Failure Risk Ranking
 ```
@@ -74,6 +102,8 @@ Maintenance teams can prioritize servicing before failure occurs.
 
 * MATLAB
 * Digital Twin Simulation
+* Stochastic Modelling
+* Monte Carlo Simulation 
 * Predictive Maintenance Algorithms
 * Reliability Engineering Models
 
@@ -93,6 +123,7 @@ vibration_sensor_model.m
 rms_health_indicator.m
 cusum_fault_detection.m
 rul_prediction.m
+monte_carlo_rul.m
 
 fleet_failure_ranking.m
 
@@ -105,6 +136,7 @@ README.md
 
 * Integration with real industrial sensor data
 * Cloud-based digital twin monitoring platform
+* Bayesian RUL prediction
 * Plant-level digital twin simulation
 * Parameter sensitivity analysis
 * Machine learning assisted predictions
