@@ -6,8 +6,7 @@ The **Failure Simulation Framework for Predictive Digital Twins** is a physics-b
 
 Unlike traditional deterministic models, this framework incorporates **stochastic degradation and Monte Carlo simulation** to generate **failure time distributions**, enabling **probabilistic decision-making** for industrial asset reliability.
 
-The framework integrates **digital twin simulation** with **predictive maintenance analytics** to support industrial asset reliability and maintenance decision-making.
- 
+
 By integrating these layers, the system functions as a **digital representation of physical assets**, enabling:
 
 - Real-time degradation tracking  
