@@ -35,13 +35,11 @@ d = 1.3;
 
 failure_times = monte_carlo_rul(machine,t,dt,k,a,b,c,d,num_sim);
 
-%% Compute statistics FIRST
+%% Compute statistics
 
 mean_tf = mean(failure_times);
 std_tf = std(failure_times);
 
-fprintf("Mean Failure Time: %.2f\n",mean_tf);
-fprintf("Std Dev: %.2f\n",std_tf);
 
 %% Confidence Interval
 
