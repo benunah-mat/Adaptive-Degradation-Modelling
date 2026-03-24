@@ -84,7 +84,7 @@ This framework supports predictive maintenance and reliability analysis in indus
 ---
 
 ## Example Use Case
-
+```
 Industrial operators can simulate machine degradation and predict failure under different operating conditions.
 
 Example output:
@@ -94,6 +94,8 @@ Machine 1 → Failure predicted in 6100 hours
 Machine 4 → Failure predicted in 7800 hours
 
 Maintenance teams can prioritize servicing before failure occurs.
+
+```
 
 ---
 
