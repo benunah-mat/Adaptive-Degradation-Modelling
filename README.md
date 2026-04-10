@@ -1,4 +1,4 @@
-## Failure Simulation Framework for Predictive Digital Twin
+## Failure Simulation Framework for Predictive Digital Twins
 
 ## Overview
 
