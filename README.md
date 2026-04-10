@@ -108,7 +108,8 @@ Maintenance teams can prioritize servicing before failure occurs.
 
 ## Technologies
 
-* MATLAB
+* NumPy
+* Matplotlib
 * Digital Twin Simulation
 * Stochastic Modelling
 * Monte Carlo Simulation 
@@ -122,18 +123,18 @@ Maintenance teams can prioritize servicing before failure occurs.
 ```
 Failure-Simulation-Framework-for-Predictive-Digital-Twins
 
-run_digital_twin_framework.m
+run_digital_twin_framework.py
 
-digital_twin_simulatorx.m
-damage_evolution_model.m
-vibration_sensor_model.m
+digital_twin_simulatorx.py
+damage_evolution_model.py
+vibration_sensor_model.py
 
-rms_health_indicator.m
-cusum_fault_detection.m
-rul_prediction.m
-monte_carlo_rul.m
+rms_health_indicator.py
+cusum_fault_detection.py
+rul_prediction.py
+monte_carlo_rul.py
 
-fleet_failure_ranking.m
+fleet_failure_ranking.py
 
 README.md
 ```
